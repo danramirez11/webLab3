@@ -1,7 +1,7 @@
 import Budget from "./components/Budget/Budget"
-import ExpenseList from "./components/ExpenseList/ExpenseList"
 import Filters from "./components/Filters/Filters"
 import HeaderBar from "./components/HeaderBar/HeaderBar"
+import NewExpense from "./components/NewExpense/NewxExpense"
 import Stats from "./components/Stats/Stats"
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
         <Budget></Budget>
         <Stats></Stats>
         <Filters></Filters>
-        <ExpenseList></ExpenseList>
+        <NewExpense></NewExpense>
         </>
     )
 }
