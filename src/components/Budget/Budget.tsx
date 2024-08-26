@@ -11,7 +11,7 @@ const Budget = ({onBudget}) => {
 
     const handleSubmit = (e: Event) => {
         e.preventDefault()
-        onBudget(budgetInput)
+        onBudget(Number(budgetInput))
     }
 
     return (

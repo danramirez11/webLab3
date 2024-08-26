@@ -40,7 +40,7 @@ const App = () => {
         <>
         <HeaderBar></HeaderBar>
         <Budget onBudget = {handleBudget}></Budget>
-        <Stats></Stats>
+        <Stats stats = {budget}></Stats>
         <Filters></Filters>
         <NewExpense onExpense = {handleNewExpense}></NewExpense>
         </>
