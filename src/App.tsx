@@ -2,6 +2,7 @@ import Budget from "./components/Budget/Budget"
 import Filters from "./components/Filters/Filters"
 import HeaderBar from "./components/HeaderBar/HeaderBar"
 import NewExpense from "./components/NewExpense/NewxExpense"
+import ResetButton from "./components/ResetButton/ResetButton"
 import Stats from "./components/Stats/Stats"
 import { useState } from 'react'
 
@@ -36,9 +37,19 @@ const App = () => {
         console.log(budget)
     }
 
+    const handleReset = () => {
+        setExpenses([])
+        setBudget({
+            total: 0,
+            spent: 0
+        })
+        console.log(expenses)
+    }
+
     return (
         <>
         <HeaderBar></HeaderBar>
+        <ResetButton onReset = {handleReset}></ResetButton>
         <Budget onBudget = {handleBudget}></Budget>
         <Stats stats = {budget}></Stats>
         <Filters></Filters>
