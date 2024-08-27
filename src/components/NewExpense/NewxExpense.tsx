@@ -22,7 +22,7 @@ const NewExpense = ({onExpense}) => {
     return (
         <div>
             <section>
-                <h3>NEW EXPENSE</h3>
+                <h3>New Expense</h3>
                 <form action="" onSubmit={handleSubmit}>
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" onChange={handleChange}/>
