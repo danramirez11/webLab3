@@ -13,6 +13,7 @@ const App = () => {
         total: 0,
         spent: 0,
     })
+    const [ filter, setFilter ] = useState<string>("all")
 
     const handleBudget = (newBudget: number) => {
         setBudget((prev) => {
@@ -33,9 +34,6 @@ const App = () => {
                 total: prev.total,
                 spent: prev.spent + Number(expense.amount)
         }})
-
-        console.log(expenses)
-        console.log(budget)
     }
 
     const handleReset = () => {
@@ -47,6 +45,21 @@ const App = () => {
         console.log(expenses)
     }
 
+    const handleFilter = (newFilter: string) => {
+        setFilter(newFilter)
+        console.log(filter)
+    }
+
+    const filterExpenses = (exp: object) => {
+        if (filter === "all") {
+            return exp
+        } else {
+            return exp.filter((expense: any) => {
+                return expense.category === filter
+    }, [])
+    }
+}
+
     return (
         <>
         <HeaderBar></HeaderBar>
@@ -55,8 +68,8 @@ const App = () => {
             <>
             <ResetButton onReset = {handleReset}></ResetButton>
             <Stats stats = {budget}></Stats>
-            <Filters></Filters>
-            <ExpenseList expenseList = {expenses}></ExpenseList>
+            <Filters onFilter = {handleFilter}></Filters>
+            <ExpenseList expenseList = {filterExpenses(expenses)}></ExpenseList>
             <NewExpense onExpense = {handleNewExpense}></NewExpense>
             </>
         }

@@ -1,9 +1,14 @@
-const Filters = () => {
+const Filters = ({onFilter}) => {
+
+    const handleChange = (e) => {
+        onFilter(e.target.value)
+    }
+
     return (
         <section>
             <form action="">
                 <label htmlFor="filter">Filter categories</label>
-                <select name="filter" id="">
+                <select onChange={handleChange} name="filter" id="">
                     <option value="all">All</option>
                     <option value="food">Food</option>
                     <option value="entertainment">Entertainment</option>

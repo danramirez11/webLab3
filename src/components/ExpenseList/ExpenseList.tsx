@@ -6,7 +6,7 @@ const ExpenseList = ({expenseList}) => {
             <h3>Expense List</h3>
             {expenseList.map((expense, index) => {
                 return (
-                    <ExpenseItem expense = {expense}></ExpenseItem>
+                    <ExpenseItem key = {index} expense = {expense}></ExpenseItem>
                 )
             })}
         </section>
