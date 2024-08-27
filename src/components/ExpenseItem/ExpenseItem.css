@@ -1,0 +1,9 @@
+.expenseItem{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.expenseItem p{
+    margin: 0;
+}

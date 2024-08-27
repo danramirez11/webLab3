@@ -1,9 +1,11 @@
+import './ExpenseItem.css'
+
 const ExpenseItem = ({expense}) => {
+
     return (
-        <div>
-            <p>{expense.name}</p>
-            <p>{expense.amount}</p>
-            <p>{expense.category}</p>
+        <div className="expenseItem">
+            <p className="expenseItem-name">${expense.amount}<b> {expense.name}</b></p>
+            <p className="expenseItem-cat">{expense.category}</p>
         </div>
     )
 }
