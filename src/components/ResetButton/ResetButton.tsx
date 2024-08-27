@@ -1,6 +1,8 @@
+import './ResetButton.css'
+
 const ResetButton = ({onReset}) => {
     return (
-        <button onClick={onReset}>Reset</button>
+        <button className='resetBtn' onClick={onReset}>Reset</button>
     );
 }
 
