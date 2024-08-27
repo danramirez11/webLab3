@@ -16,7 +16,7 @@ const Budget = ({onBudget}) => {
 
     return (
         <section>
-            <h2>Define Budget</h2>
+            <h3>Define Budget</h3>
             <form action="" onSubmit={handleSubmit}>
                 <input type="number" name="budget" onChange={handleChange}/>
                 <button type="submit">Define Budget</button>

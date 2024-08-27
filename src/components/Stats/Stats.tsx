@@ -1,13 +1,23 @@
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Stats = ({stats}) => {
     const { total, spent } = stats;
     const percentage = (spent/total) * 100;
 
+    const graphicStyle = {
+        pathColor: `#d01f89`,
+        textColor: '#d01f89',
+    }
+
     return (
         <section>
-            <CircularProgressbar value={spent} text={`${percentage.toFixed(0)}%`} maxValue={total}></CircularProgressbar>
+            <CircularProgressbar 
+            maxValue={total}
+            value={spent} 
+            text={`${percentage.toFixed(0)}%`} 
+            styles={buildStyles(graphicStyle)}
+            ></CircularProgressbar>
             <div>
                 <h3>Budget: ${total}</h3>
                 <h3>Remaining: ${total - spent}</h3>
