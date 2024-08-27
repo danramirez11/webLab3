@@ -5,6 +5,7 @@ import NewExpense from "./components/NewExpense/NewxExpense"
 import ResetButton from "./components/ResetButton/ResetButton"
 import Stats from "./components/Stats/Stats"
 import { useState } from 'react'
+import ExpenseList from "./components/ExpenseList/ExpenseList"
 
 const App = () => {
     const [ expenses, setExpenses ] = useState<object[]>([])
@@ -13,7 +14,7 @@ const App = () => {
         spent: 0,
     })
 
-    const handleBudget = (newBudget) => {
+    const handleBudget = (newBudget: number) => {
         setBudget((prev) => {
             return {
                 total: newBudget,
@@ -22,7 +23,7 @@ const App = () => {
         })
     }
 
-    const handleNewExpense = (expense) => {
+    const handleNewExpense = (expense: object) => {
         setExpenses((prev) => {
             return [expense, ...prev]
         })
@@ -49,11 +50,16 @@ const App = () => {
     return (
         <>
         <HeaderBar></HeaderBar>
-        <ResetButton onReset = {handleReset}></ResetButton>
-        <Budget onBudget = {handleBudget}></Budget>
-        <Stats stats = {budget}></Stats>
-        <Filters></Filters>
-        <NewExpense onExpense = {handleNewExpense}></NewExpense>
+        {
+            budget.total === 0 ? <Budget onBudget = {handleBudget}></Budget> :  
+            <>
+            <ResetButton onReset = {handleReset}></ResetButton>
+            <Stats stats = {budget}></Stats>
+            <Filters></Filters>
+            <ExpenseList expenseList = {expenses}></ExpenseList>
+            <NewExpense onExpense = {handleNewExpense}></NewExpense>
+            </>
+        }
         </>
     )
 }
