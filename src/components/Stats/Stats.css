@@ -1,0 +1,30 @@
+.stats{
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    gap: 12px;
+}
+
+.stats div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.stats div h3{
+    margin: 4px;
+    color: #4d283e;
+}
+
+@media (max-width: 768px){
+    .stats{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .stats div{
+        width: 100%;
+        align-items: center;
+    }
+}

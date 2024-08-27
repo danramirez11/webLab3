@@ -1,5 +1,6 @@
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import './Stats.css';
 
 const Stats = ({stats}) => {
     const { total, spent } = stats;
@@ -11,7 +12,7 @@ const Stats = ({stats}) => {
     }
 
     return (
-        <section>
+        <section className='stats'>
             <CircularProgressbar 
             maxValue={total}
             value={spent} 

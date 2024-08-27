@@ -4,10 +4,10 @@ section{
     margin: 20px;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-
     display: flex;
     flex-direction: column;
     gap: 4px;
+    width: 60vw;
 }
 
 button{
@@ -15,7 +15,7 @@ button{
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 12px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
@@ -27,4 +27,10 @@ form{
 
 h3{
     color: #d01f89;
+}
+
+@media (max-width: 768px){
+    section{
+        width: 90vw;
+    }
 }
