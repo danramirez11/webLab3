@@ -6,6 +6,7 @@ import ResetButton from "./components/ResetButton/ResetButton"
 import Stats from "./components/Stats/Stats"
 import { useState } from 'react'
 import ExpenseList from "./components/ExpenseList/ExpenseList"
+import './theme/app.css'
 
 const App = () => {
     const [ expenses, setExpenses ] = useState<object[]>([])
@@ -54,7 +55,7 @@ const App = () => {
         if (filter === "all") {
             return exp
         } else {
-            return exp.filter((expense: any) => {
+            return exp.filter((expense) => {
                 return expense.category === filter
     }, [])
     }
