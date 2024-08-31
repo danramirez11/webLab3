@@ -1,17 +1,21 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
-const Budget = ({onBudget}) => {
+interface BudgetProps {
+    onBudget: (budget: number) => void
+}
+
+const Budget = ({onBudget}: BudgetProps) => {
     const [ budgetInput, setBudgetInput ] = useState(0)
 
-    const handleChange = (e: Event) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
         const { value } = e.target;
-        setBudgetInput(value)
+        setBudgetInput(Number(value))
     }
 
-    const handleSubmit = (e: Event) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        onBudget(Number(budgetInput))
+        onBudget(budgetInput)
     }
 
     return (
