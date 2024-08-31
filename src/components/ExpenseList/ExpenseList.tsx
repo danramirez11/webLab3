@@ -1,6 +1,14 @@
 import ExpenseItem from "../ExpenseItem/ExpenseItem"
 
-const ExpenseList = ({expenseList}) => {
+interface ExpenseListProps {
+    expenseList: {
+        name: string,
+        amount: number,
+        category: string
+    }[]
+}
+
+const ExpenseList = ({expenseList}: ExpenseListProps) => {
     return (
         <section>
             <h3>Expense List</h3>
