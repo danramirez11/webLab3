@@ -7,9 +7,10 @@ import Stats from "./components/Stats/Stats"
 import { useState } from 'react'
 import ExpenseList from "./components/ExpenseList/ExpenseList"
 import './theme/app.css'
+import { Expense } from "./types/types"
 
 const App = () => {
-    const [ expenses, setExpenses ] = useState<object[]>([])
+    const [ expenses, setExpenses ] = useState<Expense[]>([])
     const [ budget, setBudget ] = useState({
         total: 0,
         spent: 0,

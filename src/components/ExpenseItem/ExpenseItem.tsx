@@ -1,6 +1,14 @@
 import './ExpenseItem.css'
 
-const ExpenseItem = ({expense}) => {
+interface ExpenseItemProps {
+    expense: {
+        name: string,
+        amount: number,
+        category: string
+    }
+}
+
+const ExpenseItem = ({expense}: ExpenseItemProps) => {
 
     return (
         <div className="expenseItem">
