@@ -7,14 +7,16 @@ import Stats from "./components/Stats/Stats"
 import { useState } from 'react'
 import ExpenseList from "./components/ExpenseList/ExpenseList"
 import './theme/app.css'
-import { Expense } from "./types/types"
+import { BudgetType, Expense } from "./types/types"
 
 const App = () => {
     const [ expenses, setExpenses ] = useState<Expense[]>([])
-    const [ budget, setBudget ] = useState({
+
+    const [ budget, setBudget ] = useState<BudgetType>({
         total: 0,
         spent: 0,
     })
+
     const [ filter, setFilter ] = useState<string>("all")
 
     const handleBudget = (newBudget: number) => {
@@ -26,7 +28,7 @@ const App = () => {
         })
     }
 
-    const handleNewExpense = (expense: object) => {
+    const handleNewExpense = (expense: Expense) => {
         setExpenses((prev) => {
             return [expense, ...prev]
         })
@@ -52,7 +54,7 @@ const App = () => {
         console.log(filter)
     }
 
-    const filterExpenses = (exp: object) => {
+    const filterExpenses = (exp: Expense[]) => {
         if (filter === "all") {
             return exp
         } else {

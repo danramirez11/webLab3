@@ -1,7 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { Expense } from '../../types/types';
 
 interface NewExpenseProps {
-    onExpense: (expense: object) => void
+    onExpense: (expense: Expense) => void
 }
 
 const NewExpense = ({onExpense}: NewExpenseProps) => {

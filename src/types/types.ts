@@ -3,3 +3,8 @@ export interface Expense {
     amount: number,
     category: string
 }
+
+export interface BudgetType {
+    total: number,
+    spent: number
+}
