@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
-const NewExpense = ({onExpense}) => {
+interface NewExpenseProps {
+    onExpense: (expense: object) => void
+}
+
+const NewExpense = ({onExpense}: NewExpenseProps) => {
     const [formData, setFormData] = useState({
         name: 'Expense without name',
         amount: 0, 
@@ -8,13 +12,13 @@ const NewExpense = ({onExpense}) => {
         date: '',
     });
 
-    const handleChange = (e: any) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault()
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
       };
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         onExpense(formData)
     }
