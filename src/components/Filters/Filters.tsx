@@ -1,6 +1,12 @@
-const Filters = ({onFilter}) => {
+import { ChangeEvent } from "react"
 
-    const handleChange = (e) => {
+interface FiltersProps {
+    onFilter: (filter: string) => void
+}
+
+const Filters = ({onFilter}: FiltersProps) => {
+
+    const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
         onFilter(e.target.value)
     }
 
