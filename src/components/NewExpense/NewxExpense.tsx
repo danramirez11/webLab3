@@ -13,8 +13,11 @@ const NewExpense = ({onExpense}: NewExpenseProps) => {
         date: '',
     });
 
+    const today = new Date().toISOString().split('T')[0];
+
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault()
+        console.log(e.target.value)
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
       };
@@ -43,7 +46,7 @@ const NewExpense = ({onExpense}: NewExpenseProps) => {
                         <option value="other">Other</option>
                     </select>
                     <label htmlFor="date">Date</label>
-                    <input type="date" name="date" onChange={handleChange}/>
+                    <input type="date" name="date" value={today}  onChange={handleChange}/>
                     <button type="submit">Add Expense</button>
                 </form>
             </section>

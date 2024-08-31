@@ -1,11 +1,8 @@
+import { Expense } from '../../types/types'
 import './ExpenseItem.css'
 
 interface ExpenseItemProps {
-    expense: {
-        name: string,
-        amount: number,
-        category: string
-    }
+    expense: Expense
 }
 
 const ExpenseItem = ({expense}: ExpenseItemProps) => {

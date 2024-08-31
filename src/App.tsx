@@ -17,6 +17,8 @@ const App = () => {
         spent: 0,
     })
 
+    console.log(expenses)
+
     const [ filter, setFilter ] = useState<string>("all")
 
     const handleBudget = (newBudget: number) => {

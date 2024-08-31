@@ -1,11 +1,8 @@
+import { Expense } from "../../types/types"
 import ExpenseItem from "../ExpenseItem/ExpenseItem"
 
 interface ExpenseListProps {
-    expenseList: {
-        name: string,
-        amount: number,
-        category: string
-    }[]
+    expenseList: Expense[]
 }
 
 const ExpenseList = ({expenseList}: ExpenseListProps) => {

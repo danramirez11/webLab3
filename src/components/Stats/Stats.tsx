@@ -1,12 +1,10 @@
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import './Stats.css';
+import { BudgetType } from '../../types/types';
 
 interface StatsProps {
-    stats: {
-        total: number,
-        spent: number
-    }
+    stats: BudgetType
 }
 
 const Stats = ({stats}: StatsProps) => {
