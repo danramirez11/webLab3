@@ -2,7 +2,14 @@ import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import './Stats.css';
 
-const Stats = ({stats}) => {
+interface StatsProps {
+    stats: {
+        total: number,
+        spent: number
+    }
+}
+
+const Stats = ({stats}: StatsProps) => {
     const { total, spent } = stats;
     const percentage = (spent/total) * 100;
 
