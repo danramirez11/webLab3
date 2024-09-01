@@ -12,8 +12,6 @@ import { BudgetType, Expense } from "./types/types"
 const App = () => {
     const [ expenses, setExpenses ] = useState<Expense[]>([])
 
-    console.log(expenses)
-
     const [ budget, setBudget ] = useState<BudgetType>({
         total: 0,
         spent: 0,
@@ -63,8 +61,26 @@ const App = () => {
             return exp.filter((expense) => {
                 return expense.category === filter
     }, [])
+    }}
+
+    const handleDelete = (expense: Expense) => {
+        setExpenses((prev) => {
+            return prev.filter((exp) => {
+                return exp.id !== expense.id
+            })
+        })
+
+        setBudget((prev) => {
+            return {
+                total: prev.total,
+                spent: prev.spent - Number(expense.amount)
+            }
+        })
     }
-}
+
+    const handleUpdate = (expense: Expense) => {
+        console.log(expense)
+    }
 
     return (
         <>
@@ -75,7 +91,7 @@ const App = () => {
             <ResetButton onReset = {handleReset}></ResetButton>
             <Stats stats = {budget}></Stats>
             <Filters onFilter = {handleFilter}></Filters>
-            <ExpenseList expenseList = {filterExpenses(expenses)}></ExpenseList>
+            <ExpenseList expenseList = {filterExpenses(expenses)} onUpdate={handleUpdate} onDelete={handleDelete}></ExpenseList>
             <NewExpense onExpense = {handleNewExpense}></NewExpense>
             </>
         }
