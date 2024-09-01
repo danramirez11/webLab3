@@ -1,7 +1,8 @@
 export interface Expense {
     name: string,
     amount: number,
-    category: string
+    category: string,
+    date: string
 }
 
 export interface BudgetType {

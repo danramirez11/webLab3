@@ -1,0 +1,24 @@
+.addExpenseBtn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 20px 30px;
+    border-radius: 15px;
+}
+
+.popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.642);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-section{
+    position: fixed;
+    translate: -50%, -50%;
+}

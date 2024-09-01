@@ -9,3 +9,8 @@
 .expenseItem p{
     margin: 0;
 }
+
+.expenseItem-date{
+    font-size: small;
+    color: #666;
+}

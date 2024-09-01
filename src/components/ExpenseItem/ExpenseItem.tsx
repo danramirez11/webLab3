@@ -11,6 +11,7 @@ const ExpenseItem = ({expense}: ExpenseItemProps) => {
         <div className="expenseItem">
             <p>${expense.amount}<b> {expense.name}</b></p>
             <p>{expense.category}</p>
+            <p className='expenseItem-date'>{expense.date}</p>
         </div>
     )
 }
