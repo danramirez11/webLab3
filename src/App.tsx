@@ -12,6 +12,8 @@ import { BudgetType, Expense } from "./types/types"
 const App = () => {
     const [ expenses, setExpenses ] = useState<Expense[]>([])
 
+    console.log(expenses)
+
     const [ budget, setBudget ] = useState<BudgetType>({
         total: 0,
         spent: 0,

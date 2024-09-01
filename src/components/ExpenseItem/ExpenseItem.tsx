@@ -8,7 +8,7 @@ interface ExpenseItemProps {
 const ExpenseItem = ({expense}: ExpenseItemProps) => {
 
     return (
-        <div className="expenseItem">
+        <div className="expenseItem basic-swipeable-list__item">
             <p>${expense.amount}<b> {expense.name}</b></p>
             <p>{expense.category}</p>
             <p className='expenseItem-date'>{expense.date}</p>

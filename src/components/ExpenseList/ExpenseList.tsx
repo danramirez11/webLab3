@@ -1,11 +1,13 @@
 import { Expense } from "../../types/types"
-import ExpenseItem from "../ExpenseItem/ExpenseItem"
+import 'react-swipeable-list/dist/styles.css';
+import ExpenseItem from "../ExpenseItem/ExpenseItem";
 
 interface ExpenseListProps {
     expenseList: Expense[]
 }
 
 const ExpenseList = ({expenseList}: ExpenseListProps) => {
+      
     return (
         <section>
             <h3>Expense List</h3>

@@ -10,6 +10,7 @@ const NewExpense = ({onExpense}: NewExpenseProps) => {
     const today = new Date().toISOString().split('T')[0];
 
     const [formData, setFormData] = useState({
+        id: '1234',
         name: 'Expense without name',
         amount: 0, 
         category: 'No category',
@@ -29,6 +30,7 @@ const NewExpense = ({onExpense}: NewExpenseProps) => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setFormData((prevData) => ({ ...prevData, id: Math.random().toString().slice(2).substring(0, 4) }));
         onExpense(formData)
         changePopup()
     }
