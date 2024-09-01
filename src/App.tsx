@@ -8,6 +8,7 @@ import { useState } from 'react'
 import ExpenseList from "./components/ExpenseList/ExpenseList"
 import './theme/app.css'
 import { BudgetType, Expense } from "./types/types"
+import AddButton from "./components/AddButton/AddButton"
 
 const App = () => {
     const [ expenses, setExpenses ] = useState<Expense[]>([])
@@ -18,6 +19,8 @@ const App = () => {
     })
 
     const [ filter, setFilter ] = useState<string>("all")
+
+    const [ showPopup, setShowPopup ] = useState<boolean>(false)
 
     const handleBudget = (newBudget: number) => {
         setBudget((prev) => {
@@ -82,6 +85,10 @@ const App = () => {
         console.log(expense)
     }
 
+    const handlePopup = () => {
+        setShowPopup(!showPopup)
+    }
+
     return (
         <>
         <HeaderBar></HeaderBar>
@@ -92,7 +99,8 @@ const App = () => {
             <Stats stats = {budget}></Stats>
             <Filters onFilter = {handleFilter}></Filters>
             <ExpenseList expenseList = {filterExpenses(expenses)} onUpdate={handleUpdate} onDelete={handleDelete}></ExpenseList>
-            <NewExpense onExpense = {handleNewExpense}></NewExpense>
+            <NewExpense onExpense = {handleNewExpense} showPopup = {showPopup} onChangePop={handlePopup}></NewExpense>
+            <AddButton showPopup={showPopup} onChangePop={handlePopup}/>
             </>
         }
         </>

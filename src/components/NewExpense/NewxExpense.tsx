@@ -3,10 +3,12 @@ import { Expense } from '../../types/types';
 import './NewExpense.css'
 
 interface NewExpenseProps {
-    onExpense: (expense: Expense) => void
+    onExpense: (expense: Expense) => void,
+    showPopup: boolean,
+    onChangePop: () => void
 }
 
-const NewExpense = ({onExpense}: NewExpenseProps) => {
+const NewExpense = ({onExpense, showPopup, onChangePop}: NewExpenseProps) => {
     const today = new Date().toISOString().split('T')[0];
 
     const [formData, setFormData] = useState({
@@ -16,11 +18,6 @@ const NewExpense = ({onExpense}: NewExpenseProps) => {
         category: 'No category',
         date: today,
     });
-    const [showPopup, setShowPopup] = useState(false);
-
-    const changePopup = () => {
-        setShowPopup(!showPopup)
-    }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault()
@@ -32,23 +29,18 @@ const NewExpense = ({onExpense}: NewExpenseProps) => {
         e.preventDefault()
         setFormData((prevData) => ({ ...prevData, id: Math.random().toString().slice(2).substring(0, 4) }));
         onExpense(formData)
-        changePopup()
+        onChangePop()
     }
 
     return (
         <>
-        <button className='addExpenseBtn' onClick={changePopup}
-            style={
-                {
-                    display: showPopup ? 'none' : 'block'
-                }
-            }>+</button>
 
         <div className='popup'
             style={{
                     display: showPopup ? 'block' : 'none'
             }}
-            onClick={changePopup}>
+            onClick={onChangePop}
+            >
         </div>
             
         <section className='popup-section'
