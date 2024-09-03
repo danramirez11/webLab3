@@ -22,6 +22,8 @@ const App = () => {
 
     const [ showPopup, setShowPopup ] = useState<boolean>(false)
 
+    const [ updateExpense, setUpdateExpense ] = useState<string | null>(null)
+
     const handleBudget = (newBudget: number) => {
         setBudget((prev) => {
             return {
@@ -32,6 +34,32 @@ const App = () => {
     }
 
     const handleNewExpense = (expense: Expense) => {
+
+        if (updateExpense) {
+            let oldExpense: Expense
+
+            setExpenses((prev) => {
+                return prev.map((exp) => {
+                    if (exp.id === updateExpense) {
+                        oldExpense = exp
+                        return expense
+                    } else {
+                        return exp
+                    }
+                })
+            })
+            setUpdateExpense(null)
+
+            setBudget((prev) => {
+                return {
+                    total: prev.total,
+                    spent: 
+                        prev.spent - Number(oldExpense.amount) + Number(expense.amount)
+                }
+            })
+            return
+        }
+
         setExpenses((prev) => {
             return [expense, ...prev]
         })
@@ -82,7 +110,8 @@ const App = () => {
     }
 
     const handleUpdate = (expense: Expense) => {
-        console.log(expense)
+        setShowPopup(true)
+        setUpdateExpense(expense.id)
     }
 
     const handlePopup = () => {
