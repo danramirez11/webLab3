@@ -5,10 +5,11 @@ import './NewExpense.css'
 interface NewExpenseProps {
     onExpense: (expense: Expense) => void,
     showPopup: boolean,
-    onChangePop: () => void
+    onChangePop: () => void,
+    update: Expense | null
 }
 
-const NewExpense = ({onExpense, showPopup, onChangePop}: NewExpenseProps) => {
+const NewExpense = ({onExpense, showPopup, onChangePop, update}: NewExpenseProps) => {
     const today = new Date().toISOString().split('T')[0];
 
     const [formData, setFormData] = useState({
@@ -27,9 +28,10 @@ const NewExpense = ({onExpense, showPopup, onChangePop}: NewExpenseProps) => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setFormData((prevData) => ({ ...prevData, id: Math.random().toString().slice(2).substring(0, 4) }));
+        setFormData((prevData) => ({ ...prevData, id: update ? update.id : Math.random().toString().slice(2).substring(0, 4) }));
         onExpense(formData)
         onChangePop()
+        
     }
 
     return (

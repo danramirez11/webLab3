@@ -23,11 +23,11 @@ const ExpenseList = ({expenseList, onDelete, onUpdate}: ExpenseListProps) => {
             <h3>Expense List</h3>
             {expenseList.map((expense, index) => {
                 return (
-                    <>
-                    <button onClick={() => handleDeleteClick(expense)}>Delete</button>
+                    <div className="expenseItemWrapper">
+                    <button className="deleteBtn" onClick={() => handleDeleteClick(expense)}>Delete</button>
                     <ExpenseItem key = {index} expense = {expense}></ExpenseItem>
-                    <button onClick={() => {handleUpdateClick(expense)}}>Update</button>
-                    </>
+                    <button className="updateBtn" onClick={() => {handleUpdateClick(expense)}}>Update</button>
+                    </div>
                 )
             })}
         </section>

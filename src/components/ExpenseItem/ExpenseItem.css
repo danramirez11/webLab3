@@ -1,9 +1,29 @@
+.expenseItemWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #d01f89;
+    margin: 10px 0;
+}
+
 .expenseItem{
     display: flex;
     flex-direction: column;
     gap: 0;
     padding: 10px;
-    border-bottom: 1px solid #d01f89;
+}
+
+.deleteBtn{
+    background-color: transparent;
+    border: 1px solid rgb(234, 35, 35);
+    color: rgb(234, 35, 35);
+}
+
+.updateBtn{
+    background-color: transparent;
+    border: 1px solid rgb(35, 75, 234);
+    color: rgb(35, 75, 234);
 }
 
 .expenseItem p{

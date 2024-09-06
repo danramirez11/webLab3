@@ -128,7 +128,7 @@ const App = () => {
             <Stats stats = {budget}></Stats>
             <Filters onFilter = {handleFilter}></Filters>
             <ExpenseList expenseList = {filterExpenses(expenses)} onUpdate={handleUpdate} onDelete={handleDelete}></ExpenseList>
-            <NewExpense onExpense = {handleNewExpense} showPopup = {showPopup} onChangePop={handlePopup}></NewExpense>
+            <NewExpense onExpense = {handleNewExpense} showPopup = {showPopup} onChangePop={handlePopup} update={updateExpense}></NewExpense>
             <AddButton showPopup={showPopup} onChangePop={handlePopup}/>
             </>
         }
